@@ -1,0 +1,109 @@
+URLs
+----
+http://localhost:8080/pauta/
+
+http://localhost:8080/swagger-ui/
+http://localhost:8080/swagger-ui/#/pauta-controller
+
+
+
+VS Code Extensions
+------------------
+Spring Initializr Java Support
+vscjava.vscode-spring-initializr
+
+Lombok Annotations Support for VS Code
+vscjava.vscode-lombok
+
+
+    
+Problemas:
+----------
+"Whitelabel Error Page" ao tentar carregar qualquer url de uma app spring-boot:
+https://stackoverflow.com/questions/31134333/this-application-has-no-explicit-mapping-for-error
+
+
+Swagger - Erro ao tentar subir aplicação:
+org.springframework.context.ApplicationContextException: Failed to start bean 'documentationPluginsBootstrapper'; nested exception is java.lang.NullPointerException
+https://stackoverflow.com/questions/40241843/failed-to-start-bean-documentationpluginsbootstrapper-in-spring-data-rest/70503395#70503395
+
+
+
+
+Referências
+-----------
+Criar projeto
+https://www.treinaweb.com.br/blog/criando-uma-api-rest-com-o-spring-boot
+https://github.com/wladimilson/springbootapi/blob/master/pom.xml
+
+https://spring.io/guides/tutorials/rest/
+https://github.com/spring-projects/spring-hateoas-examples
+
+
+Adicionar suporte a Swagger:
+https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
+https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-mvc
+
+
+Suporte a Postgres:
+https://mkyong.com/spring-boot/spring-boot-spring-data-jpa-postgresql/
+
+
+Habilitar Log
+-------------
+https://www.baeldung.com/spring-boot-logging
+https://sematext.com/blog/slf4j-tutorial/
+
+
+Criar Valiador de CPF
+---------------------
+https://programadev.com.br/spring-validacao/
+
+
+
+Exemplo de Submissão com Data e Hora
+------------------------------------
+POST
+{
+  "id": 4,
+  "titulo": "Pauta 4",
+  "dataHoraAberturaSessaoVotacao": "2022-11-22T17:27:41.191Z",
+  "dataHoraFechamentoSessaoVotacao": "2022-11-22T17:27:41.191Z"
+}
+
+GET
+{
+  "id": 4,
+  "titulo": "Pauta 4",
+  "dataHoraAberturaSessaoVotacao": "2022-11-22T14:27:41.191-03:00",
+  "dataHoraFechamentoSessaoVotacao": "2022-11-22T14:27:41.191-03:00"
+}
+
+Banco de Dados
+votacao=# SELECT * FROM pauta where id = 4;
+ id | data_hora_abertura_sessao_votacao | data_hora_fechamento_sessao_votacao | titulo  
+----+-----------------------------------+-------------------------------------+---------
+  4 | 2022-11-22 14:27:41.191           | 2022-11-22 14:27:41.191             | Pauta 4
+(1 row)
+
+
+
+
+
+
+
+
+
+{
+  "id": 3,
+  "titulo": "Pauta 3",
+  "dataHoraAberturaSessaoVotacao": "2022-11-22T14:25:54.616885-03:00",
+  "dataHoraFechamentoSessaoVotacao": "2022-11-22T14:35:54.616885-03:00"
+}
+
+
+votacao=# SELECT * FROM pauta where id = 3;
+ id | data_hora_abertura_sessao_votacao | data_hora_fechamento_sessao_votacao | titulo  
+----+-----------------------------------+-------------------------------------+---------
+  3 | 2022-11-22 14:25:54.616885        | 2022-11-22 14:35:54.616885          | Pauta 3
+(1 row)
